@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BLL;
+using Entities1;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace SchoolApp
 {
@@ -19,13 +9,15 @@ namespace SchoolApp
     /// </summary>
     public partial class TeachersWindow : Window
     {
+        private Functions bl; // Declare the BLL field with the correct type
+
         public TeachersWindow()
         {
             DataContext = this;
-            //bl = new bl;
-            //Teachers = bl.GetTeachers();
+            bl = new Functions(); // Instantiate the BLL class
+            Teachers = bl.LoadTeachersDetails(); // Use the correct method name
             InitializeComponent();
         }
-        //public List<Teacher> Teachers { get; set; }
+        public List<Teachers> Teachers { get; set; } // Use the correct type name
     }
 }

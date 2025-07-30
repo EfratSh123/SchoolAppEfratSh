@@ -1,32 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BLL;
+using Entities1;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace SchoolApp
 {
-    /// <summary>
-    /// Interaction logic for StudentsWindow.xaml
-    /// </summary>
     public partial class StudentsWindow : Window
     {
+        private Functions bl; // Declare the field with the correct type
+
         public StudentsWindow()
         {
             DataContext = this;
-            //bl = new bl;
-            //Students = bl.GetStudents();
+            bl = new Functions(); // Instantiate the BLL class
+            Students = bl.LoadStudentsDetails(); // Use the correct method name
             InitializeComponent();
         }
-        //public List<Students> Students { get; set; }
+        public List<Students> Students { get; set; }
     }
 }
